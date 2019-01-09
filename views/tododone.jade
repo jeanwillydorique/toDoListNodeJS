@@ -1,11 +1,25 @@
 
+
+
+//- - function prettyDate(dateString){
+//-     //if it's already a date object and not a string you don't need this line:
+//-     - var date = dateString;
+//-     - var d = date.getDate();
+//-     - var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+//-     - "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+//-     - var m = monthNames[date.getMonth()];
+//-     - var y = date.getFullYear();
+//-     - return d+' '+m+' '+y;
+//- -}
+
 if val.state == false 
     .row.border-bottom.border-dark.bg-light.toDo
         .col-sm-2.text-dark
             p #{val.user}
             p #{val.title}
             p #{val.state}
-            p #{date}
+            p #{moment(val.creation_date).format("DD MMMM")}    
+            // p #{prettyDate(val.creation_date)}
         .col-sm-9.text-dark.d-flex.justify-content-center.flex-column
             H5.text-center #{val.content}
         .col-sm-1.text-dark.d-flex.justify-content-center.flex-column
@@ -20,7 +34,8 @@ else
             p #{val.user}
             p #{val.title}
             p #{val.state}
-            p #{date}
+            p #{moment(val.creation_date).format("DD MMMM")}
+            //p #{prettyDate(val.creation_date)}
         .col-sm-9.text-dark.d-flex.justify-content-center.flex-column
             //- p #{moment(val.creation_date).format()};
             H5.text-center #{val.content}

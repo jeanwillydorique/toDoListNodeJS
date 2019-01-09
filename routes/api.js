@@ -119,7 +119,7 @@ router.delete('/:id', function(req, res, next) {
             objId = new ObjectID(result.insertedId); 
             db.collection('toDos').findOne({ "_id" : objId }, function(err, doc){
                 if(err) return next(err);
-                //console.log(doc.state)
+                console.log(doc)
                 //if ( doc.state === false )
                 //{
                     res.render('tododone', {val : doc}, function(err, html){

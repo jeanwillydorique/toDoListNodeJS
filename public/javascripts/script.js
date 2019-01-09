@@ -129,6 +129,8 @@ document.querySelector('.form').addEventListener('submit', function(evt){
 
     let form = evt.target; 
 
+    // méthode 1
+
     let val = {};
 
     form.querySelectorAll('[name]').forEach(function(el){
@@ -136,6 +138,8 @@ document.querySelector('.form').addEventListener('submit', function(evt){
     });
 
     console.log(val)
+
+    // méthode 2
 
     let title = form.childNodes[0].firstChild.value;
     let content = form.childNodes[1].firstChild.value;
@@ -157,8 +161,13 @@ document.querySelector('.form').addEventListener('submit', function(evt){
 
         let span = document.createElement("span");
         span.innerHTML = res.response;
+        let newDel = span.querySelector(".delete");
+        let newDone = span.querySelector(".done");
 
         div = span.firstElementChild
+
+        setDelete(newDel);
+        setDone(newDone);
 
         let container = document.querySelector('.container');
         let form = document.querySelector('.form')
