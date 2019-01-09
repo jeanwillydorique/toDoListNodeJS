@@ -5,7 +5,6 @@ let del = document.querySelectorAll(".delete");
 let addNew = document.querySelectorAll(".addNew");
 // const url = "https//localhost:27017/api" //http://192.168.33.30:27017/toDoList/
 
-
 let setDelete = element => {
     element.addEventListener('click', function(el){
 
@@ -181,6 +180,8 @@ document.querySelector('.form').addEventListener('submit', function(evt){
 
 
 
+
+
         
 function makeRequest(ID, METHOD, DATA, callback){ //DATA) {
 
@@ -227,3 +228,4 @@ function alertContents(httpRequest, callback) {
 //         parent.classList.add("bg-light")
 //     }
 // }
+

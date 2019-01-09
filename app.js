@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var moment = require('moment');
+const sort = require('node-sortable');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -13,6 +14,7 @@ var app = express();
 
 app = express();
 app.locals.moment = require('moment');
+app.locals.sortablejs = require('sortablejs');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
