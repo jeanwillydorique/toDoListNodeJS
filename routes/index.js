@@ -16,10 +16,10 @@ MongoClient.connect(url, function(err, client) {
   const db = client.db(dbName);
 
   router.get('/', (req, res) => {
-    db.collection('toDos').find().toArray((err, result) => {
+    db.collection('toDos').find().sort({ "position" : -1 }).toArray((err, result) => {
       var date = moment(result[0].creation_date).format("DD MMMM");
       var user = result[0].user;
-      //console.log(result)
+      console.log(result)
       res.render('index', { 
         date : date,
         datas : result, 

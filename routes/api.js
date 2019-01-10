@@ -112,7 +112,7 @@ router.delete('/:id', function(req, res, next) {
      })
 });
 
-    router.post('/', function(req, res, next) {
+router.post('/', function(req, res, next) {
         if(err) return next(err);
 
         db.collection('toDos').insertOne(req.body, function(err, result){
@@ -133,6 +133,56 @@ router.delete('/:id', function(req, res, next) {
             });
         });
     });
+
+
+router.post('/order', function(req, res, next) {
+
+    //console.log(req.body)
+
+    //let isOk = 0;
+    req.body.forEach(function(id,pos){
+        let objId = new ObjectID(id); 
+        console.log(pos)
+        console.log(id)
+        db.collection('toDos').updateOne(
+            { "_id" : id  }, 
+            {  $set : { position : pos } },
+            // function(err, result){
+            //      if(err || !result.ok) isOk = 1 ;
+            //  }
+        )
+        //console.log(pos)
+    })
+    res.json({})
+
+});
+            // objId = new ObjectID(req.params.id); 
+            // //let newOrder = result.sort(-1)
+        
+
+            // var arrSorted = result.sort(function(a, b) {
+
+            //     function getIndex(x) { 
+            //       return data.indexOf(x.color);
+            //     }
+            //     console.log(getIndex(b))  
+            //     return (getIndex(a) - getIndex(b)) || (a - b._id);
+            // });
+
+            //console.log(arrSorted)  
+
+
+            // data.forEach(element => {
+            //     let id = element
+            //     result.forEach(el => {
+            //         if (id = el._id) {
+            //         console.log(el) 
+            //         }
+            //     });
+            // });
+
+            //resultat.push(result)
+
 });
 
 module.exports = router;

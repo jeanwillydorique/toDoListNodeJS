@@ -13,7 +13,7 @@
 //- -}
 
 if val.state == false 
-    .row.border-bottom.border-dark.bg-light.toDo
+    .row.border-bottom.border-dark.bg-light.toDo(data-id="#{val._id}")
         .col-sm-2.text-dark
             p #{val.user}
             p #{val.title}
@@ -29,7 +29,7 @@ if val.state == false
                 button(type="button" class="btn btn-danger btn-sm delete" data-id="#{val._id}")
                     i.fas.fa-trash
 else
-    .row.border-bottom.border-dark.bg-danger.toDo
+    .row.border-bottom.border-dark.bg-danger.toDo(data-id="#{val._id}")
         .col-sm-2.text-dark
             p #{val.user}
             p #{val.title}
